@@ -24,6 +24,7 @@
         'purchase',
     ],
     'data': [
+        'data/paperformat.xml',
         'report/invoice_report.xml',
         'report/purchase_report.xml',
         'report/sale_report.xml',

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modificar el formato de papel A4 (id=1): margin_top=32, header_spacing=20 -->
+    <record id="paperformat_euro" model="report.paperformat">
+        <field name="margin_top">32</field>
+        <field name="header_spacing">20</field>
+    </record>
+</odoo>
