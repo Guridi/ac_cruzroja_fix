@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_purchaseorder_document_henca_layout_fix"
+              inherit_id="purchase.report_purchaseorder_document"
+              priority="10000000">
+
+        <!-- Reemplaza solo el bloque de información -->
+        <xpath expr="//div[@id='informations']" position="replace">
+            <div id="informations" class="mt-4 mb-4">
+
+                <!-- Fila 1: realizado por -->
+                <div class="row">
+                    <div t-if="o.user_id" class="col-12 mb-2">
+                        <strong>Realizado Por:</strong>
+                        <p t-field="o.user_id" class="m-0"/>
+                    </div>
+                </div>
+
+                <!-- Fila 2: referencia ocupa el espacio restante + fecha a la derecha -->
+                <div class="row align-items-start">
+                    <div t-if="o.partner_ref" class="col">
+                        <strong>La referencia de su orden:</strong>
+                        <p t-field="o.partner_ref"
+                           class="m-0"
+                           style="word-break: break-word; white-space: normal;"/>
+                    </div>
+
+                    <div t-if="o.state in ['purchase', 'done'] and o.date_approve" class="col-auto">
+                        <strong>Fecha de la orden:</strong>
+                        <p t-field="o.date_approve" class="m-0"/>
+                    </div>
+
+                    <div t-elif="o.date_order" class="col-auto">
+                        <strong>Fecha de la orden:</strong>
+                        <p t-field="o.date_order" class="m-0"/>
+                    </div>
+                </div>
+
+                <!-- Fila 3: incoterm, si aplica -->
+                <div class="row" t-if="o.incoterm_id">
+                    <div class="col-12 mt-2">
+                        <strong>Incoterm:</strong>
+                        <p t-if="o.incoterm_location" class="m-0">
+                            <span t-field="o.incoterm_id.code"/><br/>
+                            <span t-field="o.incoterm_location"/>
+                        </p>
+                        <p t-else="" t-field="o.incoterm_id.code" class="m-0"/>
+                    </div>
+                </div>
+
+            </div>
+        </xpath>
+
+    </template>
+</odoo>
