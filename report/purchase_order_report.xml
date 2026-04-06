@@ -20,19 +20,7 @@
                 <div class="row align-items-start">
                     <div t-if="o.partner_ref" class="col">
                         <strong>La referencia de su orden:</strong>
-                        <p t-field="o.partner_ref"
-                           class="m-0"
-                           style="word-break: break-word; white-space: normal;"/>
-                    </div>
-
-                    <div t-if="o.state in ['purchase', 'done'] and o.date_approve" class="col-auto">
-                        <strong>Fecha de la orden:</strong>
-                        <p t-field="o.date_approve" class="m-0"/>
-                    </div>
-
-                    <div t-elif="o.date_order" class="col-auto">
-                        <strong>Fecha de la orden:</strong>
-                        <p t-field="o.date_order" class="m-0"/>
+                        <p t-field="o.partner_ref" class="m-0" style="word-break: break-word; white-space: normal;"/>
                     </div>
                 </div>
 
@@ -48,6 +36,12 @@
                     </div>
                 </div>
 
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-set='address']/div[@t-field='o.partner_id']" position="before">
+            <div class="mb-2" style="text-align: left;">
+                <strong>Fecha de entrega:</strong><br/>
+                <span t-field="o.date_order"/>
             </div>
         </xpath>
 
