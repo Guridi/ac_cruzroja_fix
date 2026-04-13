@@ -73,10 +73,10 @@
                     <t t-foreach="tax_totals.get('groups_by_subtotal', {}).values()" t-as="tax_group_list">
                         <t t-foreach="tax_group_list" t-as="tax_group">
                             <tr style="background-color: transparent !important; color: #000 !important;">
-                                <td style="background-color: transparent !important; color: #000 !important;">
+                                <td style="background-color: transparent !important; color: #000 !important; vertical-align: middle; text-align: center;">
                                     <span t-esc="tax_group.get('tax_group_name', '')"/>
                                     <t t-if="tax_group.get('formatted_tax_group_base_amount')">
-                                        on <span t-esc="tax_group.get('formatted_tax_group_base_amount')"/>
+                                        en <span t-esc="tax_group.get('formatted_tax_group_base_amount')"/>
                                     </t>
                                 </td>
                                 <td class="text-end" style="background-color: transparent !important; color: #000 !important;">
